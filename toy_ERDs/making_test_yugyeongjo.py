@@ -28,6 +28,11 @@ def making_test():
 making_test()
 
 with conn.cursor() as cursor:
-    sql = "INSERT INTO TableName (pk_id,column1, column2) VALUES (%s, %s, %s)"
-        cursor.execute(sql, (1, 'value1', 'value2'))
-        conn.commit()
+    # test시도를 위한 delete
+    sql = "DELETE FROM TESTS WHERE pk_id=%s"
+    cursor.execute(sql, (1,))
+    conn.commit()
+    
+    sql = "INSERT INTO TESTS (pk_id,column1, column2) VALUES (%s, %s, %s)"
+    cursor.execute(sql, (1, 'value1', 'value2'))
+    conn.commit()
