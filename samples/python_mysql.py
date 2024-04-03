@@ -30,8 +30,8 @@ try:
         conn.commit()
 
         # Delete
-        sql = "DELETE FROM TableName WHERE pk_id=%s"
-        cursor.execute(sql, (1,))
+        sql = "DELETE FROM USER WHERE USER_ID IS NOT NULL"
+        cursor.execute(sql)
         conn.commit()
 
 finally:
