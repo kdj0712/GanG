@@ -12,13 +12,17 @@ conn = pymysql.connect(
 
 
 with conn.cursor() as cursor:
-    sql = "SELECT COUNT(USER_ID) FROM USER"
-    cursor.execute(sql)
-    user_number = cursor.fetchall()
-    user_number = int(user_number[0][0])
+    # sql = "SELECT COUNT(USER_ID) FROM USER"
+    # cursor.execute(sql)
+    # user_number = cursor.fetchall()
+    # user_number = int(user_number[0][0])
 
-    USER_NAME = input("이름을 입력하세요 : ")
-    name= '{}'.format(USER_NAME)
-    sql = "INSERT INTO USER (USER_ID,`USER`) VALUES ('USER_%s',%s)"
-    cursor.execute(sql,(user_number+1,name))
+    # USER_NAME = input("이름을 입력하세요 : ")
+    # name= '{}'.format(USER_NAME)
+    # sql = "INSERT INTO USER (USER_ID,`USER`) VALUES ('USER_%s',%s)"
+    # cursor.execute(sql,(user_number+1,name))
+    # conn.commit()
+    
+    sql = "DELETE FROM USER WHERE USER_ID IS NOT NULL"
+    cursor.execute(sql)
     conn.commit()

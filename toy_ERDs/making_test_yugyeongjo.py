@@ -18,21 +18,29 @@ def making_test():
         dict_testlist = {}
         dict_testlist["question"] = input(f"문항 {i+1} : ")
         dict_testlist["option"] =[]
+        dict_testlist["correct"] = []
         for j in range(option_count):
             dict_testlist["option"].append(input(f"보기 {j+1}: "))
-        dict_testlist["right"] = input("정답 :")
-        dict_testlist["point"] = input("배점 :")
+            dict_testlist["correct"].append(input(f"정답 {j+1}:"))
+        dict_testlist["point"] = int(input("배점 :"))
         test_list.append(dict_testlist)
-    return test_list
+    return test_list, option_count
 
-making_test()
+test_list, option_count = making_test()
 
+# 출제받은 문제 DB에 넣기
 with conn.cursor() as cursor:
     # test시도를 위한 delete
-    sql = "DELETE FROM TESTS WHERE pk_id=%s"
-    cursor.execute(sql, (1,))
+    sql = "DELETE FROM TESTS WHERE TESTS_ID IS NOT NULL"
+    cursor.execute(sql)
     conn.commit()
     
-    sql = "INSERT INTO TESTS (pk_id,column1, column2) VALUES (%s, %s, %s)"
-    cursor.execute(sql, (1, 'value1', 'value2'))
-    conn.commit()
+    for i in range(len(test_list)):
+        sql = "INSERT INTO TESTS (`TESTS_ID`, `QUESTIONS`, `POINT`, `QUESTION_NUM`) VALUES (%s, %s, %s, %s)"
+        cursor.execute(sql, (f"TEST_{i+1}", test_list[i]["question"], test_list[i]["point"], i+1))
+        conn.commit()
+        for j in range(option_count):
+            sql = "INSERT INTO `OPTION` (`OPTION_ID`, `TESTS_ID`, `OPTION`, `CORRECT`, `OPTION_NUM`) VALUES (%s, %s, %s, %s, %s)"
+            cursor.execute(sql, (f"OPTION_{j+1}", f"TEST_{i+1}", test_list[i]["option"][j], test_list[i]["correct"][j], j+1))
+            conn.commit()            
+    
