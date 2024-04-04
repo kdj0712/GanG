@@ -13,7 +13,7 @@ conn = pymysql.connect(
 
 try:
     with conn.cursor() as cursor:
-        
+        sql : ""
         
 finally:
     conn.close()
