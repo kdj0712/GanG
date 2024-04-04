@@ -49,7 +49,6 @@ def making_test_from_file(path):
 path = 'toy_ERDs/quiz.txt'
 test_list, option_count = making_test_from_file(path)
 
-
 # def making_test():
 #     test_list = []
 #     question_count = int(input("출제할 문제 수를 입력해주세요 : "))
@@ -85,19 +84,20 @@ def test_db_insert(test_list, option_count):
             sql = "DELETE FROM USER WHERE USER_ID IS NOT NULL"
             cursor.execute(sql)
             conn.commit()
-            
-            sql = "SELECT COUNT(OPTION_ID) FROM `OPTION`"
-            cursor.execute(sql)
-            option_number = cursor.fetchall()
-            option_number = int(option_number[0][0])
-            
+
             for i in range(len(test_list)):
                 sql = "INSERT INTO TESTS (`TESTS_ID`, `QUESTIONS`, `POINT`, `QUESTION_NUM`) VALUES (%s, %s, %s, %s)"
                 cursor.execute(sql, (f"TEST_{i+1}", test_list[i]["question"], test_list[i]["point"], i+1))
                 conn.commit()
                 for j in range(option_count):
+                    # PK_OPTION_ID 이전 DB 갯수 파악해서 다음 숫자부터 마킹해주기
+                    sql = "SELECT COUNT(OPTION_ID) FROM `OPTION`"
+                    cursor.execute(sql)
+                    option_number = cursor.fetchall()
+                    option_number = int(option_number[0][0])
+                    
                     sql = "INSERT INTO `OPTION` (`OPTION_ID`, `TESTS_ID`, `OPTION`, `CORRECT`, `OPTION_NUM`) VALUES ('OPTION_%s', %s, %s, %s, %s)"
-                    cursor.execute(sql, (option_number, f"TEST_{i+1}", test_list[i]["option"][j], test_list[i]["correct"][j], j+1))
+                    cursor.execute(sql, (option_number+1, f"TEST_{i+1}", test_list[i]["option"][j], test_list[i]["correct"][j], j+1))
                     conn.commit()               
     finally:
         conn.close()       
