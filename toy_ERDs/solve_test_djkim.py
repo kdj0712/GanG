@@ -1,20 +1,21 @@
-import pymysql
 
-# 데이터베이스 연결 설정
-conn = pymysql.connect(
-    host='trainings.iptime.org',  # 컨테이너 이름 또는 IP
-    port = 48009,
-    user='cocolabhub',
-    password='cocolabhub',
-    db='python_mysql',  # 데이터베이스 이름
-    charset='utf8mb4',
-    # cursorclass = DictCursor
-)
 # TESTS = 문제 테이블(`TESTS_ID`,`QUESTIONS`,`RIGHT`,`POINT`,`QUESTION_NUM`)
 # OPTION = 보기 테이블(	`OPTION_ID`,`TESTS_ID`,`OPTION`,`CORRECT`,`OPTION_NUM`)
 # USER = 응시자 테이블(`USER_ID`,`USER`)
 # RESPOND = 응시 테이블(`RESPOND_ID`,`TESTS_ID`,`USER_ID`,`OPTION_ID`)
 def solve_quiz():
+    import pymysql
+
+    # 데이터베이스 연결 설정
+    conn = pymysql.connect(
+        host='trainings.iptime.org',  # 컨테이너 이름 또는 IP
+        port = 48009,
+        user='cocolabhub',
+        password='cocolabhub',
+        db='python_mysql',  # 데이터베이스 이름
+        charset='utf8mb4',
+        # cursorclass = DictCursor
+    )
     try:
         with conn.cursor() as cursor:
             while True:
@@ -89,4 +90,4 @@ def solve_quiz():
     finally:
         conn.close()
 
-solve_quiz()
+# solve_quiz()

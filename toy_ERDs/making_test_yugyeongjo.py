@@ -1,15 +1,18 @@
-import pymysql
+
 
 # 데이터베이스 연결 설정
-conn = pymysql.connect(
+
+def making_test_from_file(path):
+    import pymysql
+    conn = pymysql.connect(
     host='192.168.10.236',  # 컨테이너 이름 또는 IP
     port = 3306,
     user='cocolabhub',
     password='cocolabhub',
     db='python_mysql',  # 데이터베이스 이름
-    charset='utf8mb4'
-)
-def making_test_from_file(path):
+    charset='utf8mb4'   
+    )
+    
     with open(path, 'r', encoding='utf-8') as file:
         lines = file.readlines()  # 파일의 모든 줄을 읽어 리스트로 저장
         
@@ -46,8 +49,8 @@ def making_test_from_file(path):
     
     return test_list, option_count
 
-path = 'toy_ERDs/quiz.txt'
-test_list, option_count = making_test_from_file(path)
+# path = 'toy_ERDs/quiz.txt'
+# test_list, option_count = making_test_from_file(path)
 
 # def making_test():
 #     test_list = []
@@ -69,6 +72,15 @@ test_list, option_count = making_test_from_file(path)
 
 # 출제받은 문제 DB에 넣기
 def test_db_insert(test_list, option_count):
+    import pymysql
+    conn = pymysql.connect(
+    host='192.168.10.236',  # 컨테이너 이름 또는 IP
+    port = 3306,
+    user='cocolabhub',
+    password='cocolabhub',
+    db='python_mysql',  # 데이터베이스 이름
+    charset='utf8mb4'   
+    )
     try:
         with conn.cursor() as cursor:
             # test시도를 위한 delete
@@ -103,5 +115,5 @@ def test_db_insert(test_list, option_count):
         conn.close()       
         
     return
-test_db_insert(test_list, option_count)
+# test_db_insert(test_list, option_count)
     
