@@ -22,7 +22,7 @@ services:
       MYSQL_USER: cocolabhub
       MYSQL_PASSWORD: cocolabhub
     ports:
-      - "3306:3306"  
+      - "3307:3306"  
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql        
   
