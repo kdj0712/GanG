@@ -2,7 +2,7 @@
 import making_test_yugyeongjo, solve_test_djkim, test_scoring_yugyeongjo
 
 # 문제 출제
-path = 'toy_ERDs/quiz.txt' # 문제 출처 db 사전제공
+path = 'toy_ERDs/quiz.txt' # 외부 파일인 시험 문제 텍스트 파일에서 시험 문제의 내용을 추출해서 리스트화
 test_list, option_count = making_test_yugyeongjo.making_test_from_file(path)
 
 # 출제한 문제 db저장
