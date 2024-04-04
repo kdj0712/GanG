@@ -59,15 +59,13 @@ def solve_quiz():
                         print(f'{OPTION_NUM}.{OPTION}')
 
                     answer = int(input(" 답 : "))
-                    chosen_option = value['OPTIONS'][answer-1]  # 사용자가 입력한 답변으로 옵션 선택
-                    OPTION_NUM, OPTION = chosen_option
 
                     sql = "SELECT COUNT(RESPOND_ID) FROM RESPOND"
                     cursor.execute(sql)
                     respond_number = cursor.fetchall()[0][0]
                             # Create
-                    sql = "INSERT INTO RESPOND (`RESPOND_ID`,`TESTS_ID`,`USER_ID`,`OPTION_ID`) VALUES ('RESPOND_%s', %s,'USER_%s',%s)"
-                    cursor.execute(sql, (respond_number+1,TESTS_ID,user_number+1,OPTION_ID))
+                    sql = "INSERT INTO RESPOND (`RESPOND_ID`,`TESTS_ID`,`USER_ID`,`OPTION_ID`) VALUES ('RESPOND_%s', %s,'USER_%s','OPTION_%s')"
+                    cursor.execute(sql, (respond_number+1,TESTS_ID,user_number+1,answer))
                     conn.commit()
 
 
