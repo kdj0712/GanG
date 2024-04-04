@@ -46,13 +46,18 @@ def test_db_insert(test_list, option_count):
             cursor.execute(sql)
             conn.commit()
             
+            sql = "SELECT COUNT(OPTION_ID) FROM `OPTION`"
+            cursor.execute(sql)
+            option_number = cursor.fetchall()
+            option_number = int(option_number[0][0])
+            
             for i in range(len(test_list)):
                 sql = "INSERT INTO TESTS (`TESTS_ID`, `QUESTIONS`, `POINT`, `QUESTION_NUM`) VALUES (%s, %s, %s, %s)"
                 cursor.execute(sql, (f"TEST_{i+1}", test_list[i]["question"], test_list[i]["point"], i+1))
                 conn.commit()
                 for j in range(option_count):
-                    sql = "INSERT INTO `OPTION` (`OPTION_ID`, `TESTS_ID`, `OPTION`, `CORRECT`, `OPTION_NUM`) VALUES (%s, %s, %s, %s, %s)"
-                    cursor.execute(sql, (f"OPTION_{j+1}", f"TEST_{i+1}", test_list[i]["option"][j], test_list[i]["correct"][j], j+1))
+                    sql = "INSERT INTO `OPTION` (`OPTION_ID`, `TESTS_ID`, `OPTION`, `CORRECT`, `OPTION_NUM`) VALUES ('OPTION_%s', %s, %s, %s, %s)"
+                    cursor.execute(sql, (option_number, f"TEST_{i+1}", test_list[i]["option"][j], test_list[i]["correct"][j], j+1))
                     conn.commit()               
     finally:
         conn.close()       
