@@ -21,42 +21,26 @@ def making_test():
         dict_testlist["correct"] = []
         for j in range(option_count):
             dict_testlist["option"].append(input(f"보기 {j+1}: "))
-            dict_testlist["correct"].append(input(f"보기 {j+1}의 정답여부(정답일 경우에만 'O' 표시) : "))
-        dict_testlist["point"] = int(input("배점 : "))
+            dict_testlist["correct"].append(input(f"정답 {j+1}:"))
+        dict_testlist["point"] = int(input("배점 :"))
         test_list.append(dict_testlist)
     return test_list, option_count
 
 test_list, option_count = making_test()
 
 # 출제받은 문제 DB에 넣기
-def test_db_insert(test_list, option_count):
-    try:
-        with conn.cursor() as cursor:
-            # test시도를 위한 delete
-            sql = "DELETE FROM RESPOND WHERE RESPOND_ID IS NOT NULL"
-            cursor.execute(sql)
-            conn.commit()
-            sql = "DELETE FROM `OPTION` WHERE OPTION_ID IS NOT NULL"
-            cursor.execute(sql)
-            conn.commit()
-            sql = "DELETE FROM TESTS WHERE TESTS_ID IS NOT NULL"
-            cursor.execute(sql)
-            conn.commit()
-            sql = "DELETE FROM USER WHERE USER_ID IS NOT NULL"
-            cursor.execute(sql)
-            conn.commit()
-            
-            for i in range(len(test_list)):
-                sql = "INSERT INTO TESTS (`TESTS_ID`, `QUESTIONS`, `POINT`, `QUESTION_NUM`) VALUES (%s, %s, %s, %s)"
-                cursor.execute(sql, (f"TEST_{i+1}", test_list[i]["question"], test_list[i]["point"], i+1))
-                conn.commit()
-                for j in range(option_count):
-                    sql = "INSERT INTO `OPTION` (`OPTION_ID`, `TESTS_ID`, `OPTION`, `CORRECT`, `OPTION_NUM`) VALUES (%s, %s, %s, %s, %s)"
-                    cursor.execute(sql, (f"OPTION_{j+1}", f"TEST_{i+1}", test_list[i]["option"][j], test_list[i]["correct"][j], j+1))
-                    conn.commit()               
-    finally:
-        conn.close()       
-        
-    return
-test_db_insert(test_list, option_count)
+with conn.cursor() as cursor:
+    # test시도를 위한 delete
+    sql = "DELETE FROM TESTS WHERE TESTS_ID IS NOT NULL"
+    cursor.execute(sql)
+    conn.commit()
+    
+    for i in range(len(test_list)):
+        sql = "INSERT INTO TESTS (`TESTS_ID`, `QUESTIONS`, `POINT`, `QUESTION_NUM`) VALUES (%s, %s, %s, %s)"
+        cursor.execute(sql, (f"TEST_{i+1}", test_list[i]["question"], test_list[i]["point"], i+1))
+        conn.commit()
+        for j in range(option_count):
+            sql = "INSERT INTO `OPTION` (`OPTION_ID`, `TESTS_ID`, `OPTION`, `CORRECT`, `OPTION_NUM`) VALUES (%s, %s, %s, %s, %s)"
+            cursor.execute(sql, (f"OPTION_{j+1}", f"TEST_{i+1}", test_list[i]["option"][j], test_list[i]["correct"][j], j+1))
+            conn.commit()            
     

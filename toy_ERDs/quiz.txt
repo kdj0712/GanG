@@ -1,0 +1,52 @@
+5
+4
+Python의 창시자는 누구인가?
+Guido van Rossum
+O
+James Gosling
+
+Dennis Ritchie
+
+Brendan Eich
+
+10
+Python에서 리스트의 길이를 반환하는 내장 함수는?
+sum
+
+len
+O
+list
+
+Str
+
+20
+Python에서 True와 False를 나타내는 데이터 타입은?
+String
+
+Integer
+
+Boolean
+O
+Float
+
+10
+Python에서 함수를 정의하는 키워드는?
+function
+
+def
+O
+func
+
+declare
+
+30
+Python에서 불변 객체(Immutable Object)는 무엇인가?
+List
+
+Dictionary
+
+Tuple
+O
+String
+
+30
