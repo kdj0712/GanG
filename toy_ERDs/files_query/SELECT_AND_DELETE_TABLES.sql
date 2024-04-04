@@ -1,0 +1,36 @@
+-- 시험문제 테이블 보기
+-- TESTS_ID(PRIMARY_KEY), QUESTIONS(문제), POINT(점수),QUESTION_NUM(문제번호)
+SELECT *
+FROM TESTS
+;
+
+-- 보기문항 테이블 보기
+-- OPTION_ID(PRIMARY_KEY), TESTS_ID(FOREIGN_KEY),OPTION(보기 내용), CORRECT(정답여부), OPTION_NUM(보기번호)
+SELECT *
+FROM `OPTION`
+;
+
+-- 사용자 테이블 보기
+-- USER_ID(PRIMARY_KEY), USER(사용자)
+SELECT *
+FROM `USER`
+;
+
+-- 응답 테이블 보기
+-- RESPOND_ID(PRIMARY_KEY), TESTS_ID(FOREIGN_KEY), USER_ID(FOREIGN_KEY), OPTION_ID(FOREIGN_KEY)
+SELECT *
+FROM RESPOND
+;
+
+-- 시험문제 테이블 내 내용 제거
+DELETE FROM TESTS;
+
+-- 보기문항 테이블 내 내용 제거
+DELETE FROM `OPTION`;
+
+-- 사용자 테이블 내 내용 제거
+DELETE FROM `USER`;
+
+-- 응답 테이블 내 내용 제거
+DELETE FROM `RESPOND`;
+

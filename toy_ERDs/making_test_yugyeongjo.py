@@ -38,7 +38,7 @@ def making_test_from_file(path):
     return test_list, option_count
 
 path = 'toy_ERDs/quiz.txt'
-# test_list, option_count = making_test_from_file(path)
+test_list, option_count = making_test_from_file(path)
 
 # def making_test():
 #     test_list = []
@@ -105,5 +105,5 @@ def test_db_insert(test_list, option_count): # 앞서 실행 된 making_test_fro
         conn.close()       
         
     return
-# test_db_insert(test_list, option_count)
+test_db_insert(test_list, option_count)
     
