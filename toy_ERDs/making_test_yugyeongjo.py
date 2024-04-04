@@ -64,7 +64,7 @@ def test_db_insert(test_list, option_count): # 앞서 실행 된 making_test_fro
     # 데이터베이스 연결 설정
     conn = pymysql.connect(
     host='192.168.10.236',  # 컨테이너 이름 또는 IP
-    port = 3306,
+    port = 3307,
     user='cocolabhub',
     password='cocolabhub',
     db='python_mysql',  # 데이터베이스 이름
