@@ -36,7 +36,7 @@ def solve_quiz():
                             "FROM TESTS "
                             "INNER JOIN `OPTION` ON TESTS.TESTS_ID = `OPTION`.TESTS_ID "
                             "ORDER BY TESTS.TESTS_ID, "
-                            "CAST(SUBSTRING_INDEX(`OPTION`.OPTION_ID, '_', -1) AS UNSIGNED), " # VARCHAR의 정렬을 가능하게 할 수 있도록 조건을 추가
+                            "CAST(SUBSTRING_INDEX(`OPTION`.OPTION_ID, '_', -1) AS UNSIGNED), " # VARCHAR 타입 텍스트의 정렬을 가능하게 할 수 있도록 조건을 추가
                             "`OPTION`.OPTION_ID"
                         )
                 cursor.execute(sql)
