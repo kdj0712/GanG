@@ -21,8 +21,8 @@ def making_test():
         dict_testlist["correct"] = []
         for j in range(option_count):
             dict_testlist["option"].append(input(f"보기 {j+1}: "))
-            dict_testlist["correct"].append(input(f"정답 {j+1}:"))
-        dict_testlist["point"] = int(input("배점 :"))
+            dict_testlist["correct"].append(input(f"정답 {j+1}: "))
+        dict_testlist["point"] = int(input("배점 : "))
         test_list.append(dict_testlist)
     return test_list, option_count
 
@@ -31,6 +31,12 @@ test_list, option_count = making_test()
 # 출제받은 문제 DB에 넣기
 with conn.cursor() as cursor:
     # test시도를 위한 delete
+    sql = "DELETE FROM RESPOND WHERE RESPOND_ID IS NOT NULL"
+    cursor.execute(sql)
+    conn.commit()
+    sql = "DELETE FROM `OPTION` WHERE OPTION_ID IS NOT NULL"
+    cursor.execute(sql)
+    conn.commit()
     sql = "DELETE FROM TESTS WHERE TESTS_ID IS NOT NULL"
     cursor.execute(sql)
     conn.commit()
