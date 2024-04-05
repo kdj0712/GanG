@@ -30,6 +30,7 @@
 |5|RESPOND_CALCULATE.sql|응시자별 점수 구하기 & 전체응시자 평균 구하기 query문|김덕재|[RESPOND_CALCULATE.sql](./toy_ERDs/files_query/RESPOND_CALCULATE.sql)|
 |6|scoring_query.sql|응시자별 점수 구하기 & 전체응시자 평균 구하기 query문|조유경|[scoring_query.sql](./toy_ERDs/files_query/scoring_query.sql)|
 - query 파일 정리본
+
 |구분|파일명|파일설명|담당자|링크|
 |--|--|--|--|--|
 |1|main.py|메인 : 각종 function 호출|조유경|[main.py](./toy_ERDs/main.py)|
