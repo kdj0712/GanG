@@ -1,5 +1,6 @@
 ## 시험 문제 출제, 문제 풀이 및 점수 산정 프로그램 제작
 
+### 프로젝트 개요
 |구분|내용|
 |--|--|
 |기간|2024.04.02 ~ 2024.04.04|
@@ -8,7 +9,13 @@
 |담당|조유경 : 시험 문제 입력 및 저장, 응시자 별 점수 출력 및 응시자 전체 평균 산출 <br> 김덕재 : 시험 문제 출력 및 응시 정보 저장, 영상 제작|
 |결과영상|[Youtube Link](https://www.youtube.com/watch?v=RyOrkZEqAyM&ab_channel=DeokJaeKim)|
 
-## python_mysql
+### 사용 툴
+
+### 프로젝트 결과물
+
+## Setting
+<detail>
+
 #### Main package
 - java:17
 - mysql:8
@@ -31,3 +38,4 @@ Docker reinstallation command copied
 + user='cocolabhub',
 + password='cocolabhub',
 + db='python_mysql'
+</detail>
