@@ -14,7 +14,7 @@
 ### 프로젝트 결과물
 
 ## Setting
-<detail>
+<details>
 <summary>Setting</summary>
 
 #### Main package
@@ -39,4 +39,4 @@ Docker reinstallation command copied
 + user='cocolabhub',
 + password='cocolabhub',
 + db='python_mysql'
-</detail>
+</details>
