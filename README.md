@@ -15,6 +15,7 @@
 
 ## Setting
 <detail>
+<summary>Setting</summary>
 
 #### Main package
 - java:17
