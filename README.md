@@ -14,9 +14,9 @@
 
 ### 프로젝트 결과물
 - ERD 
- - <img src="./toy_ERDs/image/ERD_img.png">
+ + <img src="./toy_ERDs/image/ERD_img.png">
 - 결과 영상
- - <img src="./toy_ERDs/image/Youtube_img.png">[Youtube Link](https://www.youtube.com/watch?v=RyOrkZEqAyM)
+ + <img src="./toy_ERDs/image/Youtube_img.png">[Youtube Link](https://www.youtube.com/watch?v=RyOrkZEqAyM)
 
 
 
