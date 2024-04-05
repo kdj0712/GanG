@@ -14,8 +14,8 @@
 ### 프로젝트 결과물
 
 ## Setting
-<details>
-<summary> </summary>
+<details>ad
+<summary>Click!</summary>
 
 #### Main package
 - java:17
