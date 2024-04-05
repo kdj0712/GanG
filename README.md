@@ -7,7 +7,7 @@
 |인원|조유경, 김덕재|
 |내용|시험 문제와 보기 문항을 입력받아 DB에 저장한 다음, <br> 사용자 이름을 입력받아 사용자가 응시한 정보를 저장하여, <br> 그 정보를 기반으로 점수와 응시자 평균 점수를 출력하는 프로그램의 제작|
 |담당|조유경 : 시험 문제 입력 및 저장, 응시자 별 점수 출력 및 응시자 전체 평균 산출 <br> 김덕재 : 시험 문제 출력 및 응시 정보 저장, 영상 제작|
-|결과영상|<img src="./toy_ERDs/image/Youtube_img.png"(https://www.youtube.com/watch?v=RyOrkZEqAyM&ab_channel=DeokJaeKim)|
+|결과영상|<img src="./toy_ERDs/image/Youtube_img.png">(https://www.youtube.com/watch?v=RyOrkZEqAyM&ab_channel=DeokJaeKim)|
 
 ### 사용 툴
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white">
