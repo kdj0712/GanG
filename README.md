@@ -10,8 +10,20 @@
 |결과영상|[Youtube Link](https://www.youtube.com/watch?v=RyOrkZEqAyM&ab_channel=DeokJaeKim)|
 
 ### 사용 툴
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white">
 
 ### 프로젝트 결과물
+- ERD 
+- 
+- 
+
+### File 정리본
+|구분|파일명|파일설명|담당자|링크|
+|--|--|--|--|--|
+|1|main.py|메인 : 각종 function 호출|조유경|[main.py](./toy_ERDs/main.py)|
+|2|making_test_yugyeongjo.py|시험 문제 및 보기 출제 후 DB에 저장|조유경|[making_test_yugyeongjo.py](./toy_ERDs/making_test_yugyeongjo.py)|
+|3|solve_test_djkim.py|문제 응시 후 응시자별 응시내용 DB에 저장|김덕재|[solve_test_djkim.py](./toy_ERDs/solve_test_djkim.py)|
+|4|test_scoring_yugyeongjo.py|응시자별 응답내용 채점 후 총합 계산 & 응시자 전체 평균 출력|조유경|[test_scoring_yugyeongjo.py](./toy_ERDs/test_scoring_yugyeongjo.py)|
 
 ## Setting
 <details>ad
