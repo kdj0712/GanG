@@ -17,7 +17,13 @@
 #### CLI with Dockerfile and compose.xml : duration 150.4s
 ```
 # --project-name is docker container name
-~$ docker-compose --project-name python_mysql up -d --build
+Docker installation command copied
+
+~$ docker-compose --project-name python__mysql up -d --build
+Docker reinstallation command copied
+
+~$ docker-compose --project-name python__mysql build --no-cache
+~$ docker-compose --project-name python__mysql up -d
 ```
 #### samples
 - [samples/python_mysql.py](./samples/python_mysql.py)
